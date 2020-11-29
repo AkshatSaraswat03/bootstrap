@@ -135,14 +135,27 @@ Building on the above example, you can create different toast color schemes with
 
 Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle. If you're only ever going to show one toast at a time, put the positioning styles right on the `.toast`.
 
-{{< example class="bg-dark bd-example-toasts p-0">}}
-<div aria-live="polite" aria-atomic="true" class="position-relative">
-  <div class="toast position-absolute top-0 right-0 m-3">
+{{< example >}}
+<form>
+  <div class="form-group mb-3">
+    <label for="selectToastPlacement">Toast placement</label>
+    <select class="form-select mt-2" id="selectToastPlacement">
+      <option value="" selected>Select a position...</option>
+      <option value="top-0 left-0">Top left</option>
+      <option value="top-0 left-50 translate-middle-x">Top center</option>
+      <option value="top-0 right-0">Top right</option>
+      <option value="bottom-0 left-0">Bottom left</option>
+      <option value="bottom-0 left-50 translate-middle-x">Bottom center</option>
+      <option value="bottom-0 right-0">Bottom right</option>
+    </select>
+  </div>
+</form>
+<div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
+  <div class="toast position-absolute m-3 show" id="toastPlacement">
     <div class="toast-header">
       {{< placeholder width="20" height="20" background="#007aff" class="rounded mr-2" text="false" title="false" >}}
       <strong class="mr-auto">Bootstrap</strong>
       <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
       Hello, world! This is a toast message.

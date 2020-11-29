@@ -28,13 +28,22 @@
       new bootstrap.Popover(popover)
     })
 
+  var toastPlacement = document.getElementById('toastPlacement')
+  if (toastPlacement) {
+    document.getElementById('selectToastPlacement').addEventListener('change', function () {
+      if (!toastPlacement.dataset.originalClass) {
+        toastPlacement.dataset.originalClass = toastPlacement.className
+      }
+
+      toastPlacement.className = toastPlacement.dataset.originalClass + ' ' + this.value
+    })
+  }
+
   document.querySelectorAll('.toast')
     .forEach(function (toastNode) {
-      var toast = new bootstrap.Toast(toastNode, {
+      new bootstrap.Toast(toastNode, {
         autohide: false
-      })
-
-      toast.show()
+      }).show()
     })
 
   // Demos within modals
